@@ -8,7 +8,7 @@ class RegistrationForm(FlaskForm):
     name = StringField("Full Name", validators=[DataRequired()])
     email = StringField("Email", validators=[DataRequired(), Email()])
     password = PasswordField("Password", validators=[DataRequired()])
-    password2 = PasswordField("Password", validators=[DataRequired(), EqualTo("password")])
+    password2 = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo("password")])
     submit = SubmitField("Register")
 
     def validate_username(self, username):
@@ -29,6 +29,8 @@ class LoginForm(FlaskForm):
 
 class EditUserForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired()])
+    name = StringField("Full Name", validators=[DataRequired()])
+    about_me = TextAreaField("About Me",validators=[Length(min=0,max=140)])
     submit = SubmitField("Submit")
 
     def __init__(self, original_username, *args, **kwargs):

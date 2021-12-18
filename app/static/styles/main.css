@@ -1,0 +1,16 @@
+body {
+    font-size: 16px;
+}
+
+.profile {
+    width: 256px;
+}
+
+.profile .btn {
+    width: 100%;
+}
+
+.avatar256 {
+    border-radius: 100%;
+    border-width: 2px;
+}
