@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<div class="page-header">
+  <h1>Explore Snippets</h1>
+</div>
+{% for snip in snips %}
+<div class="row">
+    {% include "_snip.html" %}
+</div>
+{% endfor %}
+{% endblock %}

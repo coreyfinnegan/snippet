@@ -1,0 +1,96 @@
+2021-12-15 14:57:33,552 INFO: Microblog startup [in /home/corey/Documents/Development/user-bootstrap-template/app/__init__.py:50]
+2021-12-15 14:58:23,232 ERROR: Exception on /reset_password_request [POST] [in /home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/corey/Documents/Development/user-bootstrap-template/app/routes.py", line 84, in reset_password_request
+    send_password_reset_email(user)
+  File "/home/corey/Documents/Development/user-bootstrap-template/app/email.py", line 18, in send_password_reset_email
+    token = user.get_reset_password_token()
+  File "/home/corey/Documents/Development/user-bootstrap-template/app/models.py", line 31, in get_reset_password_token
+    {'reset_password': self.id, 'exp': time() + expires_in},
+NameError: name 'time' is not defined
+2021-12-15 14:58:45,147 INFO: Microblog startup [in /home/corey/Documents/Development/user-bootstrap-template/app/__init__.py:50]
+2021-12-15 14:59:31,028 INFO: Microblog startup [in /home/corey/Documents/Development/user-bootstrap-template/app/__init__.py:50]
+2021-12-15 15:00:54,668 INFO: Microblog startup [in /home/corey/Documents/Development/user-bootstrap-template/app/__init__.py:50]
+2021-12-15 15:02:38,638 INFO: Microblog startup [in /home/corey/Documents/Development/user-bootstrap-template/app/__init__.py:50]
+2021-12-15 15:02:53,285 INFO: Microblog startup [in /home/corey/Documents/Development/user-bootstrap-template/app/__init__.py:50]
+2021-12-15 18:54:21,241 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-15 19:44:34,760 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-15 19:44:40,895 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-15 19:46:27,074 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-15 19:51:05,662 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-16 15:21:27,637 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-16 15:22:45,804 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-16 15:23:12,918 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-17 21:49:06,167 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 12:14:00,078 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 12:16:36,122 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 12:17:43,801 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:25:48,568 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:36:22,003 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:37:28,182 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:37:58,185 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:38:35,140 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:40:50,683 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:43:40,461 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:46:24,627 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:47:22,440 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:47:59,606 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:48:28,280 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:51:34,281 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:51:37,101 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:51:39,769 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:52:41,775 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:53:56,404 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:54:48,535 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 14:59:16,787 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 15:00:43,054 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 15:01:05,563 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 15:01:25,561 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 15:02:13,453 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 15:02:35,564 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 15:03:39,453 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 15:04:17,978 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 15:05:42,635 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 15:07:38,676 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-18 15:08:55,297 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-19 11:41:08,743 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-19 11:46:13,093 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-19 11:46:37,503 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-19 11:47:25,656 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-19 11:48:09,536 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-19 11:49:04,461 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-19 14:05:34,923 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-19 14:40:26,404 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-19 14:40:54,224 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-20 12:15:01,707 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-20 12:29:01,384 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-20 12:30:38,158 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:53]
+2021-12-20 12:31:14,311 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:53]
+2021-12-20 12:32:23,354 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-22 13:58:55,128 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-22 13:59:35,181 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-22 14:02:25,979 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-22 14:03:06,780 ERROR: Exception on /snip/create [POST] [in /home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/corey/Documents/Development/snippet/app/routes.py", line 115, in create_snip
+    snip = Snip(description=form.description.data, code=form.code.data, user_id=current_user.id)
+NameError: name 'Snip' is not defined
+2021-12-22 14:09:30,737 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]

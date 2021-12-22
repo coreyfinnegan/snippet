@@ -1,12 +1,8 @@
 from app import app
 from flask import render_template, flash, redirect, request, url_for
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
-from app.forms import RegistrationForm
-from app.forms import LoginForm
-from app.forms import EditUserForm
-from app.forms import ResetPasswordRequestForm
-from app.forms import ResetPasswordForm
+from app.models import User, Snip
+from app.forms import RegistrationForm, LoginForm, EditUserForm, ResetPasswordForm, ResetPasswordRequestForm, CreateSnipForm
 from app.email import send_password_reset_email
 from werkzeug.urls import url_parse
 from app import db
@@ -105,3 +101,25 @@ def reset_password(token):
         flash('Your password has been reset.')
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
+
+@app.route('/snip/create', methods=['GET','POST'])
+@login_required
+def create_snip():
+    form = CreateSnipForm()
+    if form.validate_on_submit():
+        snip = Snip(description=form.description.data, code=form.code.data, user_id=current_user.id)
+        db.session.add(snip)
+        db.session.commit()
+        flash('Congratulations, your snippet has been created.')
+        return redirect(url_for('snip', id=snip.id))
+    return render_template('createSnip.html', title="Create Snip", form=form)
+
+#@app.route('/snip/<id>')
+#def snip(id):
+#    snip = Snip.query.filter_by(id=id).first_or_404()
+#    return render_template('snip.html', snip=snip)
+
+@app.route('/snip')
+def snip():
+    snips = Snip.query.order_by(Snip.id)
+    return render_template('snip.html', title="Snippets", snips=snips)
