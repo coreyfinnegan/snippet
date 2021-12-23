@@ -1,25 +1,38 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-<div class="page-header">
+<!--<div class="page-header">
   <h1>Your Account</h1>
-</div>
-<div class="row profile">
+</div>-->
+<div class="row">
+  <div class="col-md-4">  
     <table>
-      <tr valign="top">
-        <td><img class="mr1 mb1 avatar256" src="{{ user.avatar(256) }}"></img></td>
-      </tr>
+        <tr valign="top">
+          <td><img class="mr1 mb1 avatar256" src="{{ user.avatar(256) }}"></img></td>
+        </tr>
 
-      <tr valign="top">
-        <td>
-          <h2>
-            <b>{{ user.name }}</b></br>
-            <small>{{ user.username }}</small>
-          </h2>
-          <p>{{ user.about_me }}</p>
-          <a class="btn btn-default" href="{{ url_for('edit_user')}}">Edit account details</a>
-        </td>
-      </tr>
-    </table>
+        <tr valign="top">
+          <td>
+            <h2>
+              <b>{{ user.name }}</b></br>
+              <small>{{ user.username }}</small>
+            </h2>
+            <p>{{ user.about_me }}</p>
+            <a class="btn btn-default" href="{{ url_for('edit_user')}}">Edit account details</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-8">
+      <div class="page-header">
+        <h2>My Snippets</h2>
+      </div>
+      {% for snip in snips %}
+      <div class="row">
+        {% include "_snip.html" %}
+      </div>
+      {% endfor %}
+    </div>
 </div>
+
 {% endblock %}

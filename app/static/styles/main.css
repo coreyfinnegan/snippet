@@ -19,3 +19,12 @@ body {
     float: none;
     margin: 0 auto;
 }
+
+code {
+    white-space: pre-wrap;
+}
+
+.code {
+    overflow-y: scroll;
+    height: 50px;
+}

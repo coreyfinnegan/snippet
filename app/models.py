@@ -50,6 +50,7 @@ def load_user(id):
 
 class Snip(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(60))
     description = db.Column(db.Text)
     code = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

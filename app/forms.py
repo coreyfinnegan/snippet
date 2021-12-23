@@ -55,6 +55,7 @@ class ResetPasswordForm(FlaskForm):
     submit = SubmitField('Request Password Reset')
 
 class CreateSnipForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
     code = TextAreaField('Code', validators=[DataRequired()])
     description = TextAreaField('Description', validators=[DataRequired()])
     submit = SubmitField('Publish Snip')

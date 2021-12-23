@@ -49,7 +49,8 @@ def user(username):
     if current_user.username!=username:
         return redirect(url_for('index'))
     user = User.query.filter_by(username=username).first_or_404()
-    return render_template('user.html', user=user)
+    snips = Snip.query.filter_by(user_id=user.id)
+    return render_template('user.html', user=user, snips=snips)
 
 @app.route('/edit_user', methods=['GET','POST'])
 @login_required
@@ -107,17 +108,12 @@ def reset_password(token):
 def create_snip():
     form = CreateSnipForm()
     if form.validate_on_submit():
-        snip = Snip(description=form.description.data, code=form.code.data, user_id=current_user.id)
+        snip = Snip(title=form.title.data, description=form.description.data, code=form.code.data, user_id=current_user.id)
         db.session.add(snip)
         db.session.commit()
         flash('Congratulations, your snippet has been created.')
         return redirect(url_for('snip', id=snip.id))
     return render_template('createSnip.html', title="Create Snip", form=form)
-
-#@app.route('/snip/<id>')
-#def snip(id):
-#    snip = Snip.query.filter_by(id=id).first_or_404()
-#    return render_template('snip.html', snip=snip)
 
 @app.route('/snip')
 def snip():
