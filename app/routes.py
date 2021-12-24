@@ -49,8 +49,13 @@ def user(username):
     if current_user.username!=username:
         return redirect(url_for('index'))
     user = User.query.filter_by(username=username).first_or_404()
-    snips = Snip.query.filter_by(user_id=user.id)
-    return render_template('user.html', user=user, snips=snips)
+    page = request.args.get('page', 1, type=int)
+    snips = Snip.query.filter_by(user_id=user.id).order_by(Snip.timestamp.desc()).paginate(page=page, per_page=2)
+    next_url = url_for('user',username=current_user.username, page=snips.next_num) \
+        if snips.has_next else None
+    prev_url = url_for('user', username=current_user.username,page=snips.prev_num) \
+        if snips.has_prev else None
+    return render_template('user.html', user=user, snips=snips, next_url=next_url, prev_url=prev_url)
 
 @app.route('/edit_user', methods=['GET','POST'])
 @login_required
@@ -115,7 +120,12 @@ def create_snip():
         return redirect(url_for('snip', id=snip.id))
     return render_template('createSnip.html', title="Create Snip", form=form)
 
-@app.route('/snip')
-def snip():
-    snips = Snip.query.order_by(Snip.id)
-    return render_template('snip.html', title="Snippets", snips=snips)
+@app.route('/explore')
+def explore():
+    page = request.args.get('page', 1, type=int)
+    snips = Snip.query.order_by(Snip.timestamp.desc()).paginate(page=page, per_page=2)
+    next_url = url_for('explore', page=snips.next_num) \
+        if snips.has_next else None
+    prev_url = url_for('explore', page=snips.prev_num) \
+        if snips.has_prev else None
+    return render_template('snip.html', title="Snippets", snips=snips, next_url=next_url, prev_url=prev_url)

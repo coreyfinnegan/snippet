@@ -1,18 +1,13 @@
-2021-12-22 14:11:07,303 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
-2021-12-22 14:19:42,180 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
-2021-12-22 14:19:47,364 ERROR: Exception on /snip [GET] [in /home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py:1457]
+2021-12-23 20:10:54,533 ERROR: Exception on /index [GET] [in /home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py:1457]
 Traceback (most recent call last):
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 1519, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 1538, in finalize_request
-    response = self.make_response(rv)
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 1701, in make_response
-    raise TypeError(
-TypeError: The view function for 'snip' did not return a valid response. The function either returned None or ended without a return statement.
-2021-12-22 14:22:33,336 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
-2021-12-22 14:22:34,903 ERROR: Exception on /snip [GET] [in /home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py:1457]
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: user
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
@@ -22,38 +17,67 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/home/corey/Documents/Development/snippet/app/routes.py", line 125, in snip
-    return render_template('snip.html', title="Snippets", snips=snips)
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/templating.py", line 147, in render_template
-    return _render(
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/templating.py", line 128, in _render
-    rv = template.render(context)
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1291, in render
-    self.environment.handle_exception()
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/jinja2/environment.py", line 925, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/corey/Documents/Development/snippet/app/templates/snip.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/corey/Documents/Development/snippet/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
-    {%- block html %}
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
-    {% block body -%}
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
-    {% block content -%}
-  File "/home/corey/Documents/Development/snippet/app/templates/base.html", line 54, in block 'content'
-    {% block app_content %}{% endblock %}
-  File "/home/corey/Documents/Development/snippet/app/templates/snip.html", line 9, in block 'app_content'
-    {% include "_snip.html" %}
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/templating.py", line 59, in get_source
-    return self._get_source_fast(environment, template)
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/templating.py", line 95, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: _snip.html
-2021-12-22 14:22:35,730 ERROR: Exception on /snip [GET] [in /home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py:1457]
+  File "/home/corey/Documents/Development/snippet/app/routes.py", line 13, in index
+    return render_template('index.html', title="Home")
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/templating.py", line 146, in render_template
+    ctx.app.update_template_context(context)
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 756, in update_template_context
+    context.update(func())
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask_login/utils.py", line 379, in _user_context_processor
+    return dict(current_user=_get_user())
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask_login/utils.py", line 346, in _get_user
+    current_app.login_manager._load_user()
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask_login/login_manager.py", line 318, in _load_user
+    user = self._user_callback(user_id)
+  File "/home/corey/Documents/Development/snippet/app/models.py", line 50, in load_user
+    return User.query.get(int(id))
+  File "<string>", line 2, in get
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/util/deprecations.py", line 401, in warned
+    return fn(*args, **kwargs)
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 943, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 947, in _get_impl
+    return self.session._get_impl(
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2877, in _get_impl
+    return db_load_fn(
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/orm/loading.py", line 530, in load_on_pk_identity
+    session.execute(
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1692, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1614, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 325, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1481, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1845, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2026, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.email AS user_email, user.about_me AS user_about_me, user.password_hash AS user_password_hash 
+FROM user 
+WHERE user.id = ?]
+[parameters: (1,)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2021-12-23 20:11:03,851 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 20:11:10,284 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 20:11:13,304 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 20:11:16,894 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 20:20:08,975 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 20:24:23,605 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:16:37,113 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:18:12,193 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:21:27,535 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:24:08,944 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:24:36,989 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:24:40,363 ERROR: Exception on /user/coreyfinnegan [GET] [in /home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py:1457]
 Traceback (most recent call last):
   File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
@@ -63,37 +87,28 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/home/corey/Documents/Development/snippet/app/routes.py", line 125, in snip
-    return render_template('snip.html', title="Snippets", snips=snips)
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/templating.py", line 147, in render_template
-    return _render(
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/templating.py", line 128, in _render
-    rv = template.render(context)
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1291, in render
-    self.environment.handle_exception()
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/jinja2/environment.py", line 925, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/corey/Documents/Development/snippet/app/templates/snip.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/corey/Documents/Development/snippet/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
-    {%- block html %}
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
-    {% block body -%}
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
-    {% block content -%}
-  File "/home/corey/Documents/Development/snippet/app/templates/base.html", line 54, in block 'content'
-    {% block app_content %}{% endblock %}
-  File "/home/corey/Documents/Development/snippet/app/templates/snip.html", line 9, in block 'app_content'
-    {% include "_snip.html" %}
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/templating.py", line 59, in get_source
-    return self._get_source_fast(environment, template)
-  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/templating.py", line 95, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: _snip.html
-2021-12-22 14:23:00,135 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
-2021-12-22 14:24:33,492 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
-2021-12-22 14:26:05,314 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/corey/Documents/Development/snippet/app/routes.py", line 54, in user
+    next_url = url_for('user', page=snips.next_num) \
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/helpers.py", line 338, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/flask/helpers.py", line 325, in url_for
+    rv = url_adapter.build(
+  File "/home/corey/Documents/Development/snippet/venv/lib/python3.8/site-packages/werkzeug/routing.py", line 2314, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['page']. Did you forget to specify values ['username']?
+2021-12-23 23:25:31,200 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:26:11,414 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:27:33,969 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:28:50,412 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:32:08,347 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:34:08,290 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:34:32,986 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:34:57,890 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:41:21,551 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:42:02,636 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:44:32,863 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:45:05,468 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:45:40,977 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-23 23:46:43,972 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]

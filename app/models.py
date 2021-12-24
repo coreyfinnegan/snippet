@@ -6,6 +6,7 @@ from app import app
 from werkzeug.security import generate_password_hash, check_password_hash
 from hashlib import md5
 import jwt
+from datetime import datetime
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -53,6 +54,7 @@ class Snip(db.Model):
     title = db.Column(db.String(60))
     description = db.Column(db.Text)
     code = db.Column(db.Text)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):

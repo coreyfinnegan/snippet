@@ -21,18 +21,35 @@
             <a class="btn btn-default" href="{{ url_for('edit_user')}}">Edit account details</a>
           </td>
         </tr>
-      </table>
-    </div>
-    <div class="col-md-8">
+    </table>
+  </div>
+  <div class="col-md-8">
       <div class="page-header">
         <h2>My Snippets</h2>
       </div>
-      {% for snip in snips %}
+      {% for snip in snips.items %}
       <div class="row">
+      <div class="col-md-12 mb3">
         {% include "_snip.html" %}
       </div>
       {% endfor %}
-    </div>
+      </div>
+      <nav aria-label="...">
+        <ul class="pager">
+            <li class="previous{% if not prev_url %} disabled{% endif %}">
+                <a href="{{ prev_url or '#' }}" class="mt2">
+                    <span aria-hidden="true">&larr;</span> Newer posts
+                </a>
+            </li>
+            <li class="next{% if not next_url %} disabled{% endif %}">
+                <a href="{{ next_url or '#' }}" class="mt2">
+                    Older posts <span aria-hidden="true">&rarr;</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+  </div>
+
 </div>
 
 {% endblock %}
