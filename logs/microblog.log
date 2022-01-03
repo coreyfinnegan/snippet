@@ -20,3 +20,7 @@ Traceback (most recent call last):
 AttributeError: 'AnonymousUserMixin' object has no attribute 'username'
 2021-12-23 23:55:28,686 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
 2021-12-24 00:00:05,869 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-24 12:26:08,638 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-24 12:28:21,302 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-24 12:29:38,193 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]
+2021-12-30 14:59:12,475 INFO: Microblog startup [in /home/corey/Documents/Development/snippet/app/__init__.py:50]

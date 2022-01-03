@@ -123,7 +123,7 @@ def create_snip():
 @app.route('/explore')
 def explore():
     page = request.args.get('page', 1, type=int)
-    snips = Snip.query.order_by(Snip.timestamp.desc()).paginate(page=page, per_page=2)
+    snips = Snip.query.order_by(Snip.timestamp.desc()).paginate(page=page, per_page=10)
     next_url = url_for('explore', page=snips.next_num) \
         if snips.has_next else None
     prev_url = url_for('explore', page=snips.prev_num) \
